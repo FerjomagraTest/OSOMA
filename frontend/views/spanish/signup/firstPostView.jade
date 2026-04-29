@@ -25,14 +25,14 @@ block content
           h4(style='text-align:left;font-size:15px;letter-spacing:0.3px;margin-bottom:15px;') Soy:
 
           .radio-group
-            input(type='radio', name='iam', id='comprador', value='Comprador')
-            label(for='comprador') Comprador
+            input(type='radio', name='iam', id='empleador', value='Empleador')
+            label(for='empleador') Empleador
 
-            input(type='radio', name='iam', id='proveedor', value='Proveedor')
-            label(for='proveedor') Proveedor
+            input(type='radio', name='iam', id='trabajador', value='Trabajador')
+            label(for='trabajador') Trabajador
 
-            input(type='radio', name='iam', id='ambos', value='Ambos')
-            label(for='ambos') Ambos
+            input(type='radio', name='iam', id='asesor', value='Asesor')
+            label(for='asesor') Asesor
           #error_iam.error_iam
 
         div.fields
@@ -41,9 +41,10 @@ block content
             option(value='')
 
             //Nueva lista
-            option(value='Alimentos y Bebidas') Alimentos y Bebidas
-            option(value='Maquinaria, Equipo y Tecnología') Maquinaria, Equipo y Tecnología
-            option(value='Tienda de Alimentos Naturales y Orgánicos') Tienda de Alimentos Naturales y Orgánicos
+            option(value='Estaciones de servicio') Estaciones de servicio
+            option(value='Transporte de combustible') Transporte de combustible
+            //option(value='Tienda de Alimentos Naturales y Orgánicos') Tienda de Alimentos Naturales y Orgánicos
+            option(value='Asesorí, consultoría y servicion generales') Asesoría, consultoría y servicios generales
 
           #error_rubroTarget.error_rubroTarget
         

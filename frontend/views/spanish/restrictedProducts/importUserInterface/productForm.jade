@@ -13,7 +13,7 @@ block content
     a(href="/Dintair/myrecords")
       button.aeroprods() Ver registros
       
-    h2.titleBoxStart Nuevo producto restringido
+    h2.titleBoxStart Tramites y gestiones
     
     div.box_mrg
       form#msform(action='/Dintair/add/restricted', method='post', name='formu', enctype='multipart/form-data')
@@ -30,7 +30,7 @@ block content
           h2.fs-title Información general
          
           img.icon(src='/images/icons/prodName.png')  
-          h4 Nombre del producto
+          h4 Nombre del trámite o gestión
           #error_nombre.error_nombre
           input(type='text', name='nombre', id='nombre', required="", data-error-id="error_nombre")
           
