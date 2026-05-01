@@ -10,7 +10,7 @@ const startServer = async () => {
     console.log('✅ MongoDB conectado');
 
     app.listen(PORT, () => {
-      console.log(`🚀 Servidor iniciado en puerto ${PORT}`);
+      console.log(`🚀 Servidor iniciado en puerto ${PORT}`); 
     });
 
   } catch (error) {
