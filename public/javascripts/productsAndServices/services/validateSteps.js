@@ -49,13 +49,7 @@ $(".next").click(function(){
 	}
 	if(_section == 2) {
 		state += _msg('#name_serv', 'Escribe el nombre de tu servicio', 'text');
-		state += _msg('#tipo_serv', 'Escriba el tipo de servicio', 'text');
-		state += _msg('#desc_serv', 'Escriba la descripción de tu servicio', 'text');
-	}
-
-	if(_section == 3) {
-		state += _msg('#origin_serv', 'Ingresa el el lugar de procedencia', 'text');
-		state += _msg('#especialidades_serv', 'Escribe las especialidades del servicio', 'text');
+		state += _msg('#email_user', 'Escriba el correo del usuario', 'text');
 	}
 
 	if(state > 0){

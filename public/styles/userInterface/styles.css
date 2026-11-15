@@ -8012,100 +8012,430 @@ div.content_aeropost ul.result_list{
 
 
 
-/*INICIO DE CHOCOLATINA*/
-section.environmentUsers div.btn_left_side{
-  width: 100%;
-  max-width: 1370px;
-  margin: 0 auto;
-  text-align: left;
-  margin-top: 50px;
-  padding: 20px;
+/*INICIO DE VER DOCUMENTO*/
+section.environmentUsers h2.titleDocument{
+  font-size: 10px;
 }
 
-section.environmentUsers div.btn_left_side div.titlePage{
-  margin-top: 45px;
-  margin-bottom: 45px;
-  padding-left: 15px;
-  text-align: center;
-  text-align: left;
+/*div.background_product_color{
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  padding-top: 130px;
+}*/
+div.margin_content{
+  padding: 5px;
+  margin-bottom: 20px;
+}
+div.margin_content div.info_product{
+  margin:3px auto;
+  background-color: white;
+  width: 100%;
+  max-width: 940px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+div.margin_content div.info_product .top_info{
+  height: 100%;
+  width: 100%;
+  padding: 20px;
   display: flex;
-  vertical-align: middle;
+  border-bottom: 1px solid #e6e6e6;
   align-items: center;
 }
-section.environmentUsers div.btn_left_side div.titlePage a{
-  background-color: #2089f8;
-  padding: 5px;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-section.environmentUsers div.btn_left_side div.titlePage a:hover{
-  transform: (1.1,1.1);
-  -webkit-box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-}
-
-section.environmentUsers div.btn_left_side div.titlePage a img.xicon{
-  width: 20px;
-  vertical-align: -2px;
-}
-section.environmentUsers div.btn_left_side div.titlePage a button{
-  background-color: transparent;
-  border-radius: 5px;
-  color: white;
-  border:none;
-  letter-spacing: .6px;
-  outline: none;
-}
-
-
-
-section.environmentUsers form#msform ul#progressbar_choco{
-  margin: 0 0 0px;
-  padding: 0 0 0px;
-  margin-bottom: 30px;
-  overflow: hidden;
-  counter-reset: step;
-}
-section.environmentUsers form#msform ul#progressbar_choco li.restricted{
-  list-style-type: none;
-  color: black;
-  text-transform: uppercase;
-  font-size: 13px;
-  width: 50%;
-  float: left;
-  position: relative;
-}
-section.environmentUsers form#msform ul#progressbar_choco li.restricted:before{
-  content: counter(step);
-  counter-increment: step;
-  width: 25px;
-  line-height: 25px;
-  display: block;
-  font-size: 13px;
-  color: #333;
-  background: white;
-  border-radius: 10px;
-  margin: 0 auto 5px auto;
-}
-section.environmentUsers form#msform ul#progressbar_choco li.restricted:after{
-  content: '';
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_img{
   width: 100%;
-  height: 2px;
+  max-width: 30%;
+  margin-right: 10px;
+}
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_img .example_pic{
+  position:relative;
+  display:block;
+  height: 230px;
+  background-color:#00cc88;
+  background-size:cover;
+  background-position:50% 50%;
+  border-radius: 4px;
+}
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_text{
+  width: 100%;
+  max-width: 70%;
+}
+
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_text h3.prods{
+  margin:0 0 0px;
+  padding:0 0 0px;
+  letter-spacing: 0.03rem;
+  font-weight: bold;
+  padding:8px;
+  font-size:13px;
+  border-radius:5px;
+  width: 250px;
+  text-align:center;
+  margin-bottom: 20px;
+}
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_text h3.iam_prohibido{
+  color:#ff0000;
+  background:rgba(255, 77, 77, 0.1);
+}
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_text h3.iam_restringido{
+  color:#ff5500;
+  background:rgba(255, 166, 77, 0.1);
+}
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_text h3.iam_sinrest{
+  color:#00cc7a;
+  background:rgba(113,213,172,0.1);
+}
+
+
+.environmentUsers div.margin_content_document div.info_product .top_info h3.nombre{
+  margin:0 0 0px;
+  padding:0 0 0px;
+  font-size: 23px;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  color: #737373;
+}
+.environmentUsers div.margin_content_document div.info_product .top_info h3.partida{
+  font-weight: bold;
+  color:#004de6;
+  background:rgba(153, 187, 255,0.1);
+  letter-spacing: 0.03rem;
+  margin:0 0 0px;
+  padding:0 0 0px;
+  padding:8px;
+  font-size:13px;
+  border-radius:5px;
+  width: 250px;
+  text-align:center;
+  margin-top: 20px;
+}
+.environmentUsers div.margin_content_document div.info_product .top_info div.documents-container{
+  display: flex;
+  margin-top: 20px;
+}
+.environmentUsers div.margin_content_document div.info_product .top_info div.documents-container .img_document img{
+  width: 100px;
+}
+
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_text div.contacts{
+  display: flex;
+  margin-top: 20px;
+}
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_text div.contacts div.whatsapp{
+  margin-right: 10px;
+}
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_text div.contacts div.whatsapp div.wtp_btn{
+  position: relative;
+  display: block;
+  text-decoration: none;
+  vertical-align: middle;
+  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
+  border-radius: 5px;
+}
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_text div.contacts div.whatsapp div.wtp_btn button.btn_wtp{
+  width: 100%;
+  max-width: 250px;
+  padding: 13px;
+  border-radius: 5px;
+  border:0px;
+  color:white;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_text div.contacts div.aeropost div.btn_start{
+  display: flex;
+  background:#8fc7e8;
+  width: 100%;
+  padding:5px;
+  max-width: 250px;
+  border-radius:5px;
+}
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_text div.contacts div.aeropost div.btn_start a button.aero_button{
   background: white;
-  position: absolute;
-  left: -50%;
-  top: 9px;
-  z-index: -1; 
+  display:block;
+  border-radius:5px;
+  padding:8px;
+  border:0px;
+  color:#002d93;
+  text-decoration: none;
 }
-section.environmentUsers form#msform ul#progressbar_choco li.restricted:first-child:after{
-  content: none;
+.environmentUsers div.margin_content_document div.info_product .top_info div.contenido_text div.contacts div.aeropost div.btn_start div.aeropost-btn{
+  text-align: center;
 }
-section.environmentUsers form#msform ul#progressbar_choco li.active.restricted:before,  #progressbar_choco li.active.restricted:after{
-  background: #00cc88;
-  color: white;
+
+
+
+
+.environmentUsers div.margin_content_document .general_info{
+  padding: 0px;
+  height: 100%;
+}
+
+.environmentUsers div.margin_content_document .general_info .necessary_documents{
+  margin-bottom: 0px;
+  display: flex;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1{
+  width: 60%;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content{
+  background-color: rgba(153, 187, 255,0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.text_docu{
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(26, 102, 255, 0.1);
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.text_docu h3{
+  margin:0 0 0px;
+  padding:0 0 0px;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.text_docu h3.needs{
+  font-size: 15px;
+  color: #004de6;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.text_docu h3.entidad{
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #737373;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.text_docu h3.documents_prod{
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  font-weight: bold;
+  color: #737373;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.img_docu{
+  width: 100%;
+  padding-left: 0px;
+  padding-top: 10px;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.img_docu div.precio_permiso{
+  background-color: #ffeecc;
+  color:#e69900;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.img_docu div.precio_permiso p{
+  margin:0 0 0px;
+  padding:0 0 0px;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.img_docu div.precio_permiso p.focus{
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.img_docu div.precio_permiso p.permiso{
+  font-size: 12px;
+  padding-bottom: 5px;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.img_docu div.precio_permiso p.precio{
+  font-size: 12px;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.img_docu a button.btn_minin{
+  width: 100%;
+  color:white;
+  background-color: #1652f0;
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+  border:0px;
   transition: all 0.3s ease;
+  margin-bottom: 10px;
 }
-/*FIN DE CHOCOLATINA*/
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.img_docu a button.btn_minin:hover{
+  transform: (1.1,1.1);
+  box-shadow: 0px 2px 10px rgba(0, 92, 230,0.3);
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.img_docu div.target_docu{
+  padding: 0px;
+  display: block;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.img_docu div.target_docu div.img_document{
+  padding-right: 10px;
+  padding-bottom: 10px;
+  display: inline-flex;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.target_docu img.img_produce{
+  width: 115px;
+  border:1px solid #e6e6e6;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.target_docu img.img_produce:hover{
+  transform: (1.1,1.1);
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+}
+
+
+
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.add_msg{
+color:#00cc7a;
+  background:rgba(113,213,172,0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.add_msg p{
+  margin:0 0 0px;
+  padding:0 0 0px;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.environmentUsers div.margin_content_document .general_info .necessary_documents div.whole_content_1 div.sub_content div.add_msg h3{
+  margin:0 0 0px;
+  padding:0 0 0px;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+
+
+
+
+.environmentUsers div.margin_content_document .general_info div.necessary_documents div.whole_content_2{
+  width: 40%;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+.environmentUsers div.margin_content_document .general_info div.necessary_documents div.whole_content_2 div.sub_content{
+  margin: auto;
+}
+.environmentUsers div.margin_content_document .general_info div.necessary_documents div.whole_content_2 div.sub_content div.whatsapp{
+  position: relative;
+  display: block;
+  text-decoration: none;
+  vertical-align: middle;
+  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
+  border-radius: 5px;
+  padding: 10px;
+}
+.environmentUsers div.margin_content_document .general_info div.necessary_documents div.whole_content_2 div.sub_content div.whatsapp p{
+  margin:0 0 0px;
+  padding:0 0 0px;
+  color: white;
+  text-align: center;
+}
+.environmentUsers div.margin_content_document .general_info div.necessary_documents div.whole_content_2 div.sub_content div.whatsapp p.title{
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+.environmentUsers div.margin_content_document .general_info div.necessary_documents div.whole_content_2 div.sub_content div.whatsapp p.s_text{
+  font-size: 13px;
+  padding-bottom: 10px;
+}
+.environmentUsers div.margin_content_document .general_info div.necessary_documents div.whole_content_2 div.sub_content div.whatsapp div.wtp_btn button.btn_wtp{
+  width: 100%;
+  border:none;
+  border-radius: 5px;
+  color: #00cc88;
+  background-color: white;
+  padding:8px;
+}
+
+
+.environmentUsers div.margin_content_document .general_info div.necessary_documents div.whole_content_2 div.sub_content div.aeropost_btn{
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: #8fc7e8;
+  padding: 10px;
+}
+.environmentUsers div.margin_content_document .general_info div.necessary_documents div.whole_content_2 div.sub_content div.aeropost_btn p.aeropost_text{
+  margin:0 0 0px;
+  padding:0 0 0px;
+  font-size: 15px;
+  padding-bottom: 10px;
+  color: white;
+}
+.environmentUsers div.margin_content_document .general_info div.necessary_documents div.whole_content_2 div.sub_content div.aeropost_btn a button.to_aeropost_btn{
+  width: 100%;
+  border:none;
+  border-radius: 5px;
+  color: #8fc7e8;
+  background-color: white;
+  padding:8px;
+}
+
+
+
+
+
+.environmentUsers div.margin_content_document .general_info div.comment_prohibido{
+  background:rgba(255, 77, 77, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  color: #ff0000;
+  margin:10px;
+}
+.environmentUsers div.margin_content_document .general_info div.comment_prohibido p{
+  margin:0 0 0px;
+  padding:0 0 0px;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.environmentUsers div.margin_content_document .general_info div.comment_prohibido h3{
+  margin:0 0 0px;
+  padding:0 0 0px;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+.environmentUsers div.margin_content_document .general_info div.comment{
+  color:#00cc7a;
+  background:rgba(113,213,172,0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+.environmentUsers div.margin_content_document .general_info div.comment p{
+  margin:0 0 0px;
+  padding:0 0 0px;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.environmentUsers div.margin_content_document .general_info div.comment h3{
+  margin:0 0 0px;
+  padding:0 0 0px;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+.environmentUsers div.margin_content_document div.info_product .font{
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-top: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.environmentUsers div.margin_content_document div.info_product .font p.text_font{
+  margin:0 0 0px; 
+  padding:0 0 0px;
+  font-size: 10px;
+}
+/*FIN DE VER DOCUMENTO*/
 
 
 

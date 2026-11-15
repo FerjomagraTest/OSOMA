@@ -127,8 +127,8 @@
 
                                         html +=  '<p class="id", name="id", id="id" style="display:none;">'+item._id+'</p>'
 
-                                        html +=  '<a href="/Dintair/restricted/'+item._id+'">'
-                                        html +=  '<button style="width:100%; margin-top:10px; color:white; background:#00cc88;padding:8px; border-radius:4px; border:0px"> Editar </button>'
+                                        html +=  '<a href="/Osoma/midocumento/'+item._id+'">'
+                                        html +=  '<button style="width:100%; margin-top:10px; color:white; background:#00cc88;padding:8px; border-radius:4px; border:0px"> Ver documento </button>'
                                         html +=  '</a>'
 
                                         html +=  '</div>'

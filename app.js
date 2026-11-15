@@ -75,7 +75,7 @@ app.use('/',
   //userInterface
   usersRouter,
   headerSearchRouter,
-  publicationsRouter
+  publicationsRouter,
 
 )
 //login

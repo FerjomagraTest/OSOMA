@@ -1,0 +1,52 @@
+extends ../../templates/users/default
+
+block content
+
+  section.environmentUsers
+
+    h2.titleBoxStart Subir documento para:
+    h2.name_prod= osoma_user.name_serv
+    h2.email_user= osoma_user.email_user
+    div.box_mrg
+      form#msform(action='/Osoma/services/create/osomauser', method='post', name='formu', enctype='multipart/form-data')
+        // progressbar
+        ul.progressService#progressbarServ
+          li.active
+          li
+
+        
+        fieldset
+          h2.fs-title Información del documento
+         
+          img.icon(src='/images/icons/prodName.png')
+          h4 Nombre del documento
+          #error_name_serv
+          input(type='text', name='name_serv', id='name_serv', autocomplete='off', data-error-id="error_name_serv")
+          input.id(type='hidden', id='id', name='id', value='#{user._id}')
+          input.id(type='hidden', id='id', name='id', value='#{osoma_user._id}')
+
+          img.icon(src='/images/icons/descriptionProd.png') 
+          h4 Correo del usuario
+          #error_email_user
+          input(type='text', name='email_user', id='email_user', value='#{osoma_user.email_user}', disabled)
+
+          h2.fs-title Agrega el documento pdf
+
+          section(class="content-photo")
+            div(id='list', name='list')
+              img(src='/images/icons/img_Servicios.png', id='btnFhoto')
+              input(type='file', id='btnFiles', name='imgProducto', multiple)
+              input(type='hidden' name='newFile' id='newFile' value='')
+
+            section#ct-items
+
+            img.spiral(src='/images/gif/spiral.gif', id='loaderImg', name='loaderImg', style="display:none;margin:0 auto; text-align:center;")
+
+          input.previous.action-button(type='button', name='Anterior', value='Anterior')
+          input.submit.action-button(type='submit', name='submit', value='Registrar documentos', id='btnSend')
+
+    script(src='/javascripts/productsAndServices/services/stepsForm.js')
+    script(src='/javascripts/productsAndServices/services/validateSteps.js')
+    script(src='/javascripts/productsAndServices/script1.js')
+    script(src='/javascripts/productsAndServices/inputFocus.js')
+    //- script(src='/javascripts/productsAndServices/validateFieldsPictures.js')

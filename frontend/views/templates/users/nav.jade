@@ -10,18 +10,12 @@ header
               a(href='/Dintair')
                 img(src='/images/dintair/dintair_iso.png')
 
-
-            //- div.alertsbtns
-            //-   a#nhp(href='/Dintair/notification/profile')
-            //-     p#not(data-url='/Dintair/exists-np')
-            //-     img(src='/images/users/icons/bell.png')
-
-              
             div.alertsbtns
               p#notificationHeader
                 a(href="/Platform/chat/")
                 img(src='/images/icons/message_icon.png')
             //input(type="hidden" name="userIdEmisor" id="userIdEmisor" value="") //value='#{user._id}'
+                
       div.secondSHomePage#segment2()
         div.Search
           form(id="formSearchHeader")
@@ -52,23 +46,11 @@ header
             div.editing
               li
                 a(href='/Dintair/profile/user/edit') Editar perfil
-              //- li
-              //-   a(href='/Dintair/profile/Ambassador') Editar Representante
 
             li
               a(href='/Dintair/kindProduct')
                 img(src='/images/icons/alMayorProd.png')
                 | Mis productos
-                
-            //- li
-            //-   a(href='/Dintair/contacts/f&f')
-            //-     img(src='/images/users/icons/profile_footer.png')
-            //-     | Contactos
-
-            //- li
-            //-   a(href='/Dintair/Search/1')
-            //-     img(src='/images/icons/scope_d.png')
-            //-     | Buscar
             
             li.logout
               a(href='/logout') Cerrar sesión
@@ -81,28 +63,22 @@ header
 
             div#notifications
               div(style='100%;')
-                a(href='/Dintair/recommendations/board')
-                  div.prods()
-                    img(src='/images/users/icons/post_icon.png')
-                    h3 Publicación
-
                 a(href='/Dintair/products/add/Product')
                   div.prods()
                     img(src='/images/icons/alMayorProd.png')
-                    h3 Nuevo producto
+                    h3 Tramite o Gestiones
 
-                a(href='/Dintair/services/add/Service')
+              if user.username == 'admin@magrashoetrees.com'
+                a(href="/Osoma/users/view")
                   div.prods()
                     img(src='/images/users/icons/truck_icon.png')
-                    h3 Nuevo Servicio
+                    h3 Usuarios OSOMA
 
               if user.username == 'aeropost.lim@aeropost.com'
                   a(href='/Dintair/imports/addProduct')
                     div.servs()
                       img(src='/images/icons/importList.png')
                       h3 Producto restringido
-
-
 
 
     nav
@@ -117,15 +93,11 @@ header
                 div.dataRel
                   p= user.comp_name
                   p= user.username
-        //li
-          a.find(href='/Dintair/start/Newsbook') Newsbook
+
         li.first_sg
           a.terms(href='/Dintair/kindProduct') 
             img(src='/images/icons/alMayorProd.png')
             |Mis Productos
-          //- a.terms(href='/Dintair/contacts/f&f') 
-          //-   img(src='/images/users/icons/profile_footer.png')
-          //-   | Mis Contactos
 
         li
           a.terms(href='/Dintair/privacyPolice', target='_blank') 
@@ -160,12 +132,6 @@ header
       input(type="hidden" name="userIdEmisor" id="userIdEmisor" value="#{user._id}")
 
 
-      //- div.alertsbtns
-      //-   a#nhph(href='/Dintair/notification/profile')
-      //-     p#not(data-url='/Dintair/exists-np') 
-      //-     img(src='/images/users/icons/bell.png')
-
-
     div.secondSHomePage()
       div.Search
         form(id="formSearchHeader_2")
@@ -175,11 +141,8 @@ header
           input(type='text',name='txtSearchHeader_"', id='txtSearchHeader_2', data-source="/Dintair/search-header", autocomplete="off", placeholder='Busca Productos')
           img(src='/images/users/icons/scope.png')
 
-
-
         div.block_search2
           section#content-search-header_2()
-
 
         button.btn_create(onclick="document.getElementById('id01').style.display='block'") Crear
         div.clientes(id="id01" class="modal")

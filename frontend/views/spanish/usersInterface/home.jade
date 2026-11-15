@@ -9,22 +9,12 @@ block content
       div.contenidoTHC
 
         div.firstSHomePage#segment1()
-          div.markets_place(style='background-image: url("/images/defaultimages/test.jpg");')
-            a(href='/Dintair/markets/list')
-              div.box_to_mplace()
-                h3 Markets
-          div.markets_place_2(style='background-image: url("/images/defaultimages/image1.jpeg");')
-            a(href='/Dintair/recommendations/board')
-              div.box_to_mplace()
-                h3 Recomendaciones de posibles clientes
                 
-
-          if user.username == '1@osomasac.com'
-            div.markets_place_3(style='background-image: url("/images/back_chat.PNG");')
-              div.box_to_mplace()
-                h3 Agregar un trámites y gestiones
-                a(href="/Dintair/imports/addProduct")
-                  button() Agregar
+          div.markets_place_3(style='background-image: url("/images/back_chat.PNG");')
+            div.box_to_mplace()
+              h3 Agregar trámites y gestiones
+              a(href="/Dintair/imports/addProduct")
+                button() Agregar
 
           if user.username == 'chocolatinape@gmail.com'
             div.markets_place_3(style='background-image: url("/images/back_chat.PNG");')
@@ -191,49 +181,6 @@ block content
                                       span(onclick="document.getElementById('id0img3').style.display='none'" class="close" title="Close Modal") &times
 
                                     div.messages(id='result_3')
-
-                      //- div.cando.like
-                      //-   div.check.boxsize
-                      //-     div.countn
-                      //-       img(src='/images/users/postPublications/recommend-ok.png')
-                      //-       .js-like-number
-
-                      //-         if publication.like == undefined
-                      //-           p 0
-                      //-         else
-
-                      //-           p #{publication.like}
-                          
-                      //-     if myLike.indexOf(publication._id.toString()) != -1
-                      //-       button.button.btn-like.btn-like-ok.js-like()
-                      //-         img(src='/images/users/postPublications/recommend-ok.png')
-                      //-         | Recomendar
-                          
-                      //-     else
-                      //-       button.button.btn-like.btn-like-ok.js-like()
-                      //-         img(src='/images/users/postPublications/recommend-not.png')
-                      //-         | Recomendar
-
-                      //-     div.count_n_2(style="display:none;")
-                      //-       .js-like-number
-                      //-         if publication.like == undefined
-                      //-           | 0
-                      //-         else
-                      //-           | #{publication.like}
-                      
-
-                      //- if publication.creator.username == user.username
-                      //-   div.e_public_ation
-                      //-     a(href='/Dintair/make/public/edition/#{publication.id}')
-                      //-       button() Editar publicación
-                      
-
-                
-            //else
-              P No hay publicaciones
-
-              a(href='/Dintair/recommendations/board')
-                button.click_action() Inicia una publicación dirigida
 
         div.thirdSHomePage#segment3()
           div.boxProducts

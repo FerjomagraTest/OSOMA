@@ -1,4 +1,5 @@
 const Servicios = require('./models/services');
+const OsomaUser = require('./models/osomaUser');
 const UploadTavo = require('../../middleware/uploadImages/upload')
 const fs = require('fs')
 const controller = {}
@@ -9,6 +10,285 @@ cloudinary_users.config({
   api_key: process.env.CLOUDINARY_APIKEY,
   api_secret: process.env.CLOUDINARY_APISECRET
 })
+
+controller.osomaUsersView = (req,res) =>{
+
+    OsomaUser.find({creator : req.user._id}).populate('creator').exec(
+        function(err, myOsomaUsers){
+            if(err){
+                res.redirect('/Dintair')
+                return
+            }
+            res.render('views/spanish/services/principalPage', {
+                user: req.user,
+                myOsomaUsers : myOsomaUsers.reverse()
+            })
+        }
+    )
+}
+
+controller.createOsomaUserView = (req,res) => {
+    res.render('views/spanish/services/osomaUser', {
+        user: req.user
+    })
+}
+
+controller.createOsomaUserPost = (req,res) => {
+    res.setHeader('Content-Type', 'application/json');
+
+    var iduser = req.body.id
+    //Formato fecha
+    var am_pm_var = ""
+    var fechaactual = new Date()
+    var curr_hour = fechaactual.getHours()-5
+
+    if(curr_hour < 12){
+        am_pm_var = 'AM'
+    } else {
+        am_pm_var = 'PM'
+    }
+
+    if(curr_hour == 0){
+        curr_hour = 12
+    }
+
+    if(curr_hour > 12){
+        curr_hour = curr_hour - 12
+    }
+
+    var curr_min = fechaactual.getMinutes()
+    var nuevafecha = (curr_hour + " : " + curr_min + " " + am_pm_var)
+
+    //fechas
+    var meses = new Array('Enero', "Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto", "Septiembre","Octubre","Noviembre","Diciembre")
+    var fechaactual = new Date()
+    var tiempoact= (fechaactual.getDate() + ' de ' + meses[fechaactual.getMonth()] + ' de ' + fechaactual.getFullYear())
+    var horaactual = (fechaactual.getHours() + ' : ' + fechaactual.getMinutes() + ' : ' + fechaactual.getSeconds())
+
+    var osoma_user = {
+        name_serv : req.body.name_serv,
+        email_user: req.body.email_user,
+        targetsell : req.body.targetsell,
+        hora_creacion : horaactual,
+        fecha_creacion : tiempoact,
+        nuevafecha : nuevafecha,
+        imageServicios : '/images/services/img_defect_services.jpg',
+        creator: iduser,
+        deleted : false
+    }
+
+    var data_osoma_user = new OsomaUser(osoma_user)
+    var result = {state : 0, msg : 'No se pudo registrar'};
+    var files = JSON.parse(req.body.files);
+
+    if(files.length){
+        function saveData(newRoute){
+            data_osoma_user.imageServicios = newRoute;
+            data_osoma_user.save(function(err){
+                if(!err){
+                    req.flash('messageprod' , 'Servicio ' + data_osoma_user.name_serv + ', creado')
+
+                    result = {
+                        state : 1,
+                        msg : 'ok',
+                        data: {url: '/Dintair/kindProduct'}
+                    };
+                } else {
+                    result = {state : 0, msg : 'No se registrar los cambios'};
+                }
+
+                res.send(JSON.stringify(result));
+            });
+        }
+
+        var count = files.length;
+        var index = 0;
+        var newRoute = '';
+
+        files.map((item) => {
+            var newFile = UploadTavo()._getFile(item);
+            var nameFile = UploadTavo()._getRandom(5) + '-' + req.body.id + '.' + newFile.type;
+            var routeFile = './uploads/' + nameFile;
+
+            fs.writeFile(routeFile, newFile.data, {encoding: 'base64'}, function(err) {
+                if (err) {
+                    console.log('err', err);
+                } else {
+                    cloudinary_users.uploader.upload(routeFile, function(result) {
+                        newRoute = (newRoute)? newRoute + '---' + result.url : result.url;
+
+                        index++;
+                        if(index == count){
+                            saveData(newRoute);
+                        }
+                    })
+                }
+            });
+        });
+    } else {
+        data_osoma_user.save(function(err){
+            if(!err){
+                req.flash('messageprod' , 'Servicio ' + data_osoma_user.name_serv + ', creado')
+
+                result = {
+                    state : 1,
+                    msg : 'ok',
+                    data: {url: '/Dintair/kindProduct'}
+                };
+            } else {
+                result = {state : 0, msg : 'No se pudo registrar los cambios, intentelo mas tarde'};
+            }
+
+            res.send(JSON.stringify(result));
+        })
+
+    }
+}
+
+controller.osomaUserDetail = (req,res) => {
+    var id_osomaUser = req.params.id
+
+    OsomaUser.findById({'_id': id_osomaUser}, function(err, osoma_user){
+        if(err){
+            res.redirect('/Dintair/messages')
+            return
+        }
+
+        res.render('views/spanish/services/osomaViewDetail', {
+            osoma_user: osoma_user, 
+            user : req.user
+        })
+
+    })
+}
+
+controller.osomaUploadFilesView = (req,res) => {
+    var id_osomaUser = req.params.id
+
+    OsomaUser.findById({'_id': id_osomaUser}, function(err, osoma_user){
+        if(err){
+            res.redirect('/Dintair/messages')
+            return
+        }
+
+        res.render('views/spanish/services/osomaUploadFile', {
+            osoma_user: osoma_user, 
+            user : req.user
+        })
+    })
+}
+
+controller.osomaUploadFilesCreate = (req,res) => {
+    res.setHeader('Content-Type', 'application/json');
+
+    var iduser = req.body.id
+    //Formato fecha
+    var am_pm_var = ""
+    var fechaactual = new Date()
+    var curr_hour = fechaactual.getHours()-5
+
+    if(curr_hour < 12){
+        am_pm_var = 'AM'
+    } else {
+        am_pm_var = 'PM'
+    }
+
+    if(curr_hour == 0){
+        curr_hour = 12
+    }
+
+    if(curr_hour > 12){
+        curr_hour = curr_hour - 12
+    }
+
+    var curr_min = fechaactual.getMinutes()
+    var nuevafecha = (curr_hour + " : " + curr_min + " " + am_pm_var)
+
+    //fechas
+    var meses = new Array('Enero', "Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto", "Septiembre","Octubre","Noviembre","Diciembre")
+    var fechaactual = new Date()
+    var tiempoact= (fechaactual.getDate() + ' de ' + meses[fechaactual.getMonth()] + ' de ' + fechaactual.getFullYear())
+    var horaactual = (fechaactual.getHours() + ' : ' + fechaactual.getMinutes() + ' : ' + fechaactual.getSeconds())
+
+    var osoma_user = {
+        name_serv : req.body.name_serv,
+        email_user: req.body.email_user,
+        targetsell : req.body.targetsell,
+        hora_creacion : horaactual,
+        fecha_creacion : tiempoact,
+        nuevafecha : nuevafecha,
+        imageServicios : '/images/services/img_defect_services.jpg',
+        creator: iduser,
+        deleted : false
+    }
+
+    var data_osoma_user = new OsomaUser(osoma_user)
+    var result = {state : 0, msg : 'No se pudo registrar'};
+    var files = JSON.parse(req.body.files);
+
+    if(files.length){
+        function saveData(newRoute){
+            data_osoma_user.imageServicios = newRoute;
+            data_osoma_user.save(function(err){
+                if(!err){
+                    req.flash('messageprod' , 'Servicio ' + data_osoma_user.name_serv + ', creado')
+
+                    result = {
+                        state : 1,
+                        msg : 'ok',
+                        data: {url: '/Dintair/kindProduct'}
+                    };
+                } else {
+                    result = {state : 0, msg : 'No se registrar los cambios'};
+                }
+
+                res.send(JSON.stringify(result));
+            });
+        }
+
+        var count = files.length;
+        var index = 0;
+        var newRoute = '';
+
+        files.map((item) => {
+            var newFile = UploadTavo()._getFile(item);
+            var nameFile = UploadTavo()._getRandom(5) + '-' + req.body.id + '.' + newFile.type;
+            var routeFile = './uploads/' + nameFile;
+
+            fs.writeFile(routeFile, newFile.data, {encoding: 'base64'}, function(err) {
+                if (err) {
+                    console.log('err', err);
+                } else {
+                    cloudinary_users.uploader.upload(routeFile, function(result) {
+                        newRoute = (newRoute)? newRoute + '---' + result.url : result.url;
+
+                        index++;
+                        if(index == count){
+                            saveData(newRoute);
+                        }
+                    })
+                }
+            });
+        });
+    } else {
+        data_osoma_user.save(function(err){
+            if(!err){
+                req.flash('messageprod' , 'Servicio ' + data_osoma_user.name_serv + ', creado')
+
+                result = {
+                    state : 1,
+                    msg : 'ok',
+                    data: {url: '/Dintair/kindProduct'}
+                };
+            } else {
+                result = {state : 0, msg : 'No se pudo registrar los cambios, intentelo mas tarde'};
+            }
+
+            res.send(JSON.stringify(result));
+        })
+
+    }
+}
 
 controller.createServiceViews = (req,res) => {
     res.render('views/spanish/services/createServiceView', {

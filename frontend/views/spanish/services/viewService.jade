@@ -24,7 +24,13 @@ block content
                   if index == 0
                     .active.item(data-slide-number=index)
                       .ctn-img
-                        img.img-fluid(src='#{item}')
+                        if item.includes('.pdf')
+                          a(href=item target='_blank')
+
+                            img.img-fluid.pdf-icon(src='https://cdn-icons-png.flaticon.com/512/337/337946.png')
+
+                        else
+                          img.img-fluid(src=item)
                   
                   else
                     .item(data-slide-number=index)
@@ -51,8 +57,11 @@ block content
             h2.name_prod= data_serv.name_serv
 
             h3 Descripción
-            - var gdescript = data_serv.desc_serv.split("\n")
-            for itemdescript in gdescript
+            if desc_serv
+              - var gdescript = data_serv.desc_serv.split("\n")
+              for itemdescript in gdescript
+                p.text #{itemdescript}
+            else
               p.text #{itemdescript}
 
         div.box_prods_vista_2
@@ -80,8 +89,11 @@ block content
 
           div.stock
             p.titles Especialidades
-            - var gdescriptesp = data_serv.especialidades_serv.split("\n")
-            for itemdescriptesp in gdescriptesp
+            if especialidades_serv
+              - var gdescriptesp = data_serv.especialidades_serv.split("\n")
+              for itemdescriptesp in gdescriptesp
+                p.text #{itemdescriptesp}
+            else
               p.text #{itemdescriptesp}
 
           
@@ -97,7 +109,7 @@ block content
               div.Times
                 p= data_serv.fecha_creacion
               div.Times
-                p= data_serv.nuevafecha
+                p= data_serv.hora_creacion
 
 
 

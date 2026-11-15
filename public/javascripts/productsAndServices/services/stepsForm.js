@@ -86,10 +86,7 @@ $('#btnSend').on('click', function(){
 
     dataString += '&targetsell=' + $.trim($('.targetsell').val());
     dataString += '&name_serv=' + $.trim($('#name_serv').val());
-    dataString += '&tipo_serv=' + $.trim($('#tipo_serv').val());
-    dataString += '&desc_serv=' + $.trim($('#desc_serv').val());
-    dataString += '&origin_serv=' + $.trim($('#origin_serv').val());
-    dataString += '&especialidades_serv=' + $.trim($('#especialidades_serv').val());
+    dataString += '&email_user=' + $.trim($('#email_user').val());
 
     if($('#fileOld')){
         dataString += '&fileOld=' + $.trim($('#fileOld').val());

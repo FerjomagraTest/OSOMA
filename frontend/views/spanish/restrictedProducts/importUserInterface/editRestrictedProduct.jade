@@ -23,56 +23,12 @@ block content
           h2.fs-title Información general
          
           img.icon(src='/images/icons/prodName.png')  
-          h4 Nombre del producto
+          h4 Nombre del documento
           #error_nombre.error_nombre
           input(type='text', name='nombre', id='nombre', value="#{restricted_product.nombre}", data-error-id="error_nombre")
           
-
-          img.icon(src='/images/icons/descriptionProd.png')
-          h4 Selecciona el estado del producto
-          .radio-group
-            if restricted_product.iam == "Prohibido"
-              input(type='radio', name='iam', id='prohibido', value='Prohibido', checked)
-              label(for='prohibido') Prohibido
-            else
-              input(type='radio', name='iam', id='prohibido', value='Prohibido')
-              label(for='prohibido') Prohibido
-
-            if restricted_product.iam == "Restringido"
-              input(type='radio', name='iam', id='restringido', value='Restringido', checked)
-              label(for='restringido') Restringido
-            else
-              input(type='radio', name='iam', id='restringido', value='Restringido')
-              label(for='restringido') Restringido
-
-            if restricted_product.iam == "Sin restricción"
-              input(type='radio', name='iam', id='sin_restriccion', value='Sin restricción', checked)
-              label(for='sin_restriccion') Sin restricción
-            else
-              input(type='radio', name='iam', id='sin_restriccion', value='Sin restricción')
-              label(for='sin_restriccion') Sin restricción
-          
-
-
-          img.icon(src='/images/icons/greenCloud.png')  
-          h4 Link de referencia
-          #error_link.error_link
-          input(type='text', name='link', id='link', required="", value="#{restricted_product.link}", data-error-id="error_link")
-
-
-
-          img.icon_aero(src='/images/icons/aeropost.jpg')  
-          h4 Link hacia Aeropost
-          #error_aeropost_link.error_aeropost_link
-          if restricted_product.aeropost_link == undefined
-            input(type='text', name='aeropost_link', id='aeropost_link', data-error-id="error_aeropost_link")
-          else
-            input(type='text', name='aeropost_link', id='aeropost_link', value="#{restricted_product.aeropost_link}", data-error-id="error_aeropost_link")
-
-
           input.id(type='hidden', id='id', name='id', value='#{user._id}')
       
-
           input.next.action-button(type='button', name='Continuar', value='Continuar', id='btn_next')
 
 
@@ -177,7 +133,7 @@ block content
 
 
         fieldset
-          h2.fs-title Agrega una imagen referencial (opcional)
+          h2.fs-title Adunta el documento
 
           section(class="content-photo", style="width:100%;", id='sectionCONT')
             div(id='list', name='list')

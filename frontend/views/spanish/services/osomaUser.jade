@@ -1,0 +1,81 @@
+extends ../../templates/users/default
+
+block content
+
+  section.environmentUsers
+
+    h2.titleBoxStart Nuevo usuario OSOMA
+    div.box_mrg
+      form#msform(action='/Osoma/services/create/osomauser', method='post', name='formu', enctype='multipart/form-data')
+        // progressbar
+        ul.progressService#progressbarServ
+          li.active
+          li 
+          li 
+          li
+
+        fieldset
+          h2.fs-title Rubro del usuario
+
+          h4 Selecciona a qué se dedica el usuario
+
+          #error_rubro.error_rubro
+          select#editable-select.targetsell(name='targetsell', data-error-id="error_rubro")
+
+            //Nueva lista
+            option(value='A todos los rubros') A todos los rubros
+            option(value='Transporte de combustible') Transporte de combustible
+            option(value='Estación de servicios de combustilbe') Estación de servicios de combustilbe
+            option(value='Asesoría, consultoría y servicion generales') Asesoría, consultoría y servicios generales
+            
+          
+          script.
+            $('#editable-select').editableSelect({
+              effects: 'slide',
+              duration: 80,
+              appendTo: 'fieldset',
+            });
+
+      
+          input.next.action-button(type='button', name='Continuar', value='Continuar', id='btn_next')
+
+          
+        fieldset
+          h2.fs-title Información general del usuario
+         
+          img.icon(src='/images/icons/prodName.png')
+          h4 Nombre del usuario (empresa)
+          #error_name_serv
+          input(type='text', name='name_serv', id='name_serv', autocomplete='off', data-error-id="error_name_serv")
+          input.id(type='hidden', id='id', name='id', value='#{user._id}')
+
+          img.icon(src='/images/icons/descriptionProd.png') 
+          h4 Correo del usuario (Ingrese el correo con el cual se registró el usuario)
+          #error_email_user
+          input(type='text', name='email_user', id='email_user', autocomplete='off', data-error-id="error_email_user")
+
+          input.previous.action-button(type='button', name='Anterior', value='Anterior')
+          input.next.action-button(type='button', name='Continuar', value='Continuar', id='btn_next')
+
+
+        fieldset
+          h2.fs-title Agrega logo de la empresa (opcional)
+
+          section(class="content-photo")
+            div(id='list', name='list')
+              img(src='/images/icons/img_Servicios.png', id='btnFhoto')
+              input(type='file', id='btnFiles', name='imgProducto', multiple)
+              input(type='hidden' name='newFile' id='newFile' value='')
+
+            section#ct-items
+
+            img.spiral(src='/images/gif/spiral.gif', id='loaderImg', name='loaderImg', style="display:none;margin:0 auto; text-align:center;")
+
+          input.previous.action-button(type='button', name='Anterior', value='Anterior')
+          input.submit.action-button(type='submit', name='submit', value='Registrar usuario', id='btnSend')
+
+    script(src='/javascripts/productsAndServices/services/stepsForm.js')
+    script(src='/javascripts/productsAndServices/services/validateSteps.js')
+    script(src='/javascripts/productsAndServices/script1.js')
+    script(src='/javascripts/productsAndServices/inputFocus.js')
+    //- script(src='/javascripts/productsAndServices/validateFieldsPictures.js')

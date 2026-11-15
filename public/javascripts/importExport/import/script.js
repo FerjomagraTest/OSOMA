@@ -47,8 +47,7 @@ $(".next").click(function(){
 	var state = 0;
 	
 	if(_section == 1) {
-		state += _msg('#nombre', 'Escribe el nombre del producto', 'text');
-		state += _msg('#link', "Escribe o pega un link de refernecia", "text");
+		state += _msg('#nombre', 'Escribe el nombre del trámite', 'text');
 	}
 
 

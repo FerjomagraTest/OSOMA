@@ -1,5 +1,5 @@
 {
-  "name": "Dintair_app",
+  "name": "OSOMA_WEB",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -20,6 +20,10 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
+<<<<<<< HEAD
+=======
+    "fs": "^0.0.1-security",
+>>>>>>> ea3f189 (Nuevos cambios)
     "googleapis": "^171.4.0",
     "jade": "^1.11.0",
     "mailgun-js": "^0.22.0",

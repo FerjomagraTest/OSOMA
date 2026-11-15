@@ -1,0 +1,92 @@
+extends ../../templates/users/default
+
+block content
+
+  section.environmentUsersRecommends
+    
+    if myOsomaUsers.length
+        div.productosBox.tab-content
+
+          div(id='menu1', class='tab-pane fade')
+            section.backProds
+              div.titlePage
+                
+                a(href='/Osoma/create/users/view')
+                  img.xicon(src='/images/users/icons/xIcon.png')
+                  button() Nuevo Usuario
+
+              div.imgText
+                img.data(src='/images/services/truck_icon.png')
+                h2.data Mis usuarios
+            for data_serv in myOsomaUsers
+              if data_serv.deleted == false
+                div.radioBtn.col-lg-4.col-md-6.col-sm-6.col-xs-12
+                          
+                  div.boxFDat()
+                    a(href='/Dintair/services/view/#{data_serv._id}')
+                      
+                      label.label
+                     
+                        div.image
+                          if data_serv.imageServicios
+                            - file = data_serv.imageServicios.split('---')
+                            img(src='#{file[0]}')
+
+                        div.dataProd
+
+                          div.prods
+                            p.name()=data_serv.name_serv
+     
+
+          if myOsomaUsers.length
+            div.backColorServ
+              h3 Tu lista de usuarios
+
+            div.productosBox.tab-content
+              div(id='menu1', class='tab-pane fade in active')
+                section.backProds
+                  div.titlePage
+                    a(href='/Osoma/services/osomauser')
+                      img.xicon(src='/images/users/icons/xIcon.png')
+                      button() Nuevo usuario
+                  div.imgText
+                    img.data(src='/images/services/truck_icon.png')
+                    h2.data Mis usuarios
+                for data_serv in myOsomaUsers
+                  if data_serv.deleted == false
+                    div.radioBtn.col-lg-4.col-md-6.col-sm-6.col-xs-12
+                              
+                      div.boxFDat()
+                        a(href='/Osoma/services/view/#{data_serv._id}')
+                          
+                          label.label
+                         
+                            div.image
+                              if data_serv.imageServicios
+                                - file = data_serv.imageServicios.split('---')
+                                img(src='#{file[0]}')
+
+                            div.dataProd
+
+                              div.prods
+                                p.name()=data_serv.name_serv
+                                p.name= data_serv.tipo_serv
+          else
+ 
+    else
+
+      div.imgDefaultProdServ
+        img(src='/images/icons/defaultpicpordserv.png')
+
+      p.textSP No haz agregado ningún usuario
+
+      div.boxDefault
+  
+        a(href='/Osoma/services/osomauser')
+          button.serv() Agregar usuario
+
+
+
+
+
+  script(src='/javascripts/recommends/hidebuttons.js')

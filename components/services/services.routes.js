@@ -1,6 +1,16 @@
 const router = require('express').Router()
 const indexControllers = require('./services.controllers')
 
+router.get('/Osoma/users/view', isLoggedIn, indexControllers.osomaUsersView)
+
+router.get('/Osoma/services/osomauser', isLoggedIn, indexControllers.createOsomaUserView)
+
+router.post('/Osoma/services/create/osomauser', isLoggedIn, indexControllers.createOsomaUserPost)
+
+router.get('/Osoma/services/view/:id', isLoggedIn, indexControllers.osomaUserDetail)
+
+router.get('/Osoma/services/view/uploadfile/:id', isLoggedIn, indexControllers.osomaUploadFilesView)
+
 router.get('/Dintair/services/add/Service', isLoggedIn, indexControllers.createServiceViews)
 
 router.post('/Dintair/services/addmultiple', isLoggedIn, indexControllers.createServicePost)

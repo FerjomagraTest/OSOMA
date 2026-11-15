@@ -32,7 +32,7 @@ controller.kindProduct = (req,res) => {
             res.redirect('/Dintair')
             return
           }
-          //Falta implementar servicios
+          
           Servicios.find({creator : req.user._id}).populate('creator').exec(
             function(err, myServices){
               if(err){

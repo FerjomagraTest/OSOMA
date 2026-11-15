@@ -1,0 +1,88 @@
+extends ../../templates/users/default
+
+block content
+
+  section.environmentUsersProds
+
+    div.box_prods_vista
+      div.box_by_flex
+        div.box_prods_vista_1
+          div.leftBOX
+            
+
+          div.description
+            h2.name_prod= osoma_user.name_serv
+            h2.email_user= osoma_user.email_user
+
+            h3 Descripción
+            if desc_serv
+              - var gdescript = osoma_user.desc_serv.split("\n")
+              for itemdescript in gdescript
+                p.text #{itemdescript}
+            else
+              p.text #{itemdescript}
+
+            a(href='/Osoma/services/view/uploadfile/#{osoma_user._id}')
+              button() Subir documento
+
+
+        div.box_prods_vista_2
+          h2.title_second_p Información adicional
+
+          div.timeopen
+            h2 Horario de atención
+            if osoma_user.hora_apertura && osoma_user.hora_cierre
+              div.date
+                p= 'De '+ osoma_user.dia_aper +' a '+ osoma_user.dia_cierr
+
+              div.time
+                if osoma_user.hora_apertura && osoma_user.hora_cierre
+                  p= 'De '+osoma_user.hora_apertura +' AM a '+osoma_user.hora_cierre+' PM'
+            else
+              p.default No hay un horario de atención 
+
+          div.stock
+            p.titles Tipo de servicio
+            p.tipo_serv= osoma_user.tipo_serv
+
+          div.stock
+            p.titles Lugar de origen
+            p.origen= osoma_user.origin_serv
+
+          div.stock
+            p.titles Especialidades
+            if especialidades_serv
+              - var gdescriptesp = osoma_user.especialidades_serv.split("\n")
+              for itemdescriptesp in gdescriptesp
+                p.text #{itemdescriptesp}
+            else
+              p.text #{itemdescriptesp}
+
+          
+
+            
+
+
+
+          div.timestamp
+            div.titleBox
+              h5.text Fecha de publicación
+            div.flexBox
+              div.Times
+                p= osoma_user.fecha_creacion
+              div.Times
+                p= osoma_user.hora_creacion
+
+
+
+
+    div.optionsUpDe
+      div.update
+        a(href='/Dintair/services/edit/#{osoma_user._id}')
+          button() Editar servicio
+
+      div.delete
+        form(action='/Dintair/services/view/delete/#{osoma_user._id}/#{osoma_user.name_serv}?_method=PUT', method='post')
+          input.btn_delete(type='submit', value='Eliminar servicio', id='btn_delete_add')
+
+  script(src='/javascripts/productsAndServices/services/alertDelete.js')

@@ -73,7 +73,6 @@ controller.productListId = (req,res) => {
       restricted_product : aeroprods,
       user: req.user
     })
-    
   })
  
 }
@@ -140,7 +139,7 @@ controller.productFormPost = (req,res) => {
              restricted_product.imgProductos = newRoute;
              restricted_product.save(function(err){
                  if(!err){
-                     req.flash('messageprod' , 'Producto ' + restricted_product.iam + ', creado')
+                     req.flash('messageprod' , 'Documento' + restricted_product.iam + ', creado')
 
                      result = {
                          state : 1,
@@ -182,7 +181,7 @@ controller.productFormPost = (req,res) => {
     } else {
       restricted_product.save(function(err){
           if(!err){
-              req.flash('messageprod' , 'Producto ' + restricted_product.iam + ', creado')
+              req.flash('messageprod' , 'Documento ' + restricted_product.iam + ', creado')
 
               result = {
                   state : 1,
@@ -190,7 +189,7 @@ controller.productFormPost = (req,res) => {
                   data: {url: '/Dintair/imports/addProduct'}
               };
           } else {
-              result = {state : 0, msg : 'No se pudieron registrar los cambios, intentelo mas tarde'};
+              result = {state : 0, msg : 'No se pudieron registrar los cambios, inténtelo más tarde'};
           }
 
           res.send(JSON.stringify(result));
@@ -199,8 +198,10 @@ controller.productFormPost = (req,res) => {
 }
 
 controller.restrictedProductsList = (req,res) => {
-    res.render('views/spanish/restrictedProducts/importUserInterface/viewResults',{
-        user: req.user
+
+    res.render('views/spanish/restrictedProducts/importUserInterface/editRestrictedProduct', {
+        user: req.user,
+        mydocuments : mydocuments.reverse()
     })
 }
 
@@ -351,5 +352,36 @@ controller.editRestrictedProductPut = (req,res) => {
       })
     }
 }
+
+
+controller.viewDocument = (req, res) => {
+    var id_restrict = req.params.id;
+    Restricted_products.findById(id_restrict, function(err, documento) {
+        if (err) {
+            console.error('Error al buscar el documento:', err);
+            return res.status(500).send('Error al consultar el documento');
+        }
+        if (!documento) {
+            return res.status(404).send('No se encontró el documento solicitado');
+        }
+        var files = [];
+        if (documento.imgProductos && documento.imgProductos !== '') {
+            files = documento.imgProductos
+                .split('---')
+                .filter(file => file.trim() !== '');
+        }
+        documento.files = files;
+        console.log('Mostrando array de files ------>');
+        console.log(files);
+        res.render(
+            'views/spanish/restrictedProducts/importUserInterface/viewdocument',
+            {
+                restricted_product: documento,
+                user: req.user
+            }
+        );
+    });
+};
+
 
 module.exports = controller;
