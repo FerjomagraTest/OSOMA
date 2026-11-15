@@ -193,7 +193,7 @@ controller.productFormPost = async (req, res) => {
                 UploadTavo()._getRandom(5) + '-' +
                 req.body.id + '.' + newFile.type;
 
-            var routeFile = './uploads/' + nameFile;
+            var routeFile = './uploads/' + nameFile; 
 
             try {
 
